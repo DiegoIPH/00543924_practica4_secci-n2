@@ -10,6 +10,18 @@ function calcularDiasCrecimiento(velocidadCrecimiento, velocidadDecrecimiento, a
   return dias;
 }
 
-const diasCrecimmiento = calcularDiasCrecimiento(3,1,69);
+function mostrarResultado() {
 
-document.getElementById('resultado').textContent = diasCrecimmiento;
+    const velocidadCrecimiento = parseFloat(document.getElementById('velocidadCrecimiento').value);
+    const velocidadDecrecimiento = parseFloat(document.getElementById('velocidadDecrecimiento').value);
+    const alturaDeseada = parseFloat(document.getElementById('alturaDeseada').value);
+
+    if (isNaN(velocidadCrecimiento) || isNaN(velocidadDecrecimiento) || isNaN(alturaDeseada)) {
+        document.getElementById('resultado').textContent = "Por favor, ingresa solo números.";
+        return;
+    }
+    
+    const diasCrecimiento = calcularDiasCrecimiento(velocidadCrecimiento, velocidadDecrecimiento, alturaDeseada);
+
+    document.getElementById('resultado').textContent = diasCrecimiento;
+}

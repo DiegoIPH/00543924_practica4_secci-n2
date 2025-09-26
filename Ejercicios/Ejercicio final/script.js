@@ -18,9 +18,15 @@ function calendario(diaActual){
         case "Sabado":
             return "Debo hacer lo que mi esposa quiera. "
             break;
+        default:
+            return "Ese no es un día válido. Por favor, ingresa un día de la semana.";
     }
 }
 
-let diasCrecimmiento = calendario("Martes");
 
-document.getElementById('resultado').textContent = diasCrecimmiento;
+function mostrarTarea() {
+    let diaIngresado = document.getElementById('diaInput').value;
+    let diaNormalizado = diaIngresado.charAt(0).toUpperCase() + diaIngresado.slice(1).toLowerCase();
+    let tareaDelDia = calendario(diaNormalizado);
+    document.getElementById('resultado').textContent = tareaDelDia;
+}
